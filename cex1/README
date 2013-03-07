@@ -1,0 +1,42 @@
+a)
+type                  size min                        max
+Char                  1    -128                       127
+Unsigned char         1    0                          255
+int                   4    -2147483648                2147483647
+Unsigned int          4    0                          4294967295
+short                 2    -32768                     32767
+Unsigned short        2    0                          65535
+long                  8    -9223372036854775808       9223372036854775807
+Unsigned long         8    0                          18446744073709551615
+double                8
+float                 4
+
+To calculate the minimum or maximum:
+signed types:
+minimum=-2^(size-1)
+maximum=2^(size-1)-1 //the last -1 is to keep place for zero
+unsigned types:
+minimum=0
+maximum=2^size-1
+
+b)
+1) a & b has the same value, cause the numbers in ascii has sequential values.
+2) No two variables has the same value
+
+c)
+dividing by (double) 0.0, returns infinity – if the divided number is not zero, or nan (not a number) if the divided number is zero.
+In our case the divided number is zero so the division returns nan, hence – in the first if case the else runs, and in the second the if will run. So the output of the program is:
+y=-nan
+y!=1
+dividing by (int) 0 throws exception; so after replacing the first line to “0=int x;” the program will terminate and throw “floating point exception”
+
+d)
+this can happen if a>>b, in this case a+b is rounded to a..
+
+e)
+this code prints:
+x!=y
+x=y
+the reason is that x=y puts the value of y in x and returns y – which is 2(=true)
+the same happens in java, so...
+replacing the initial value of y to zero make the code not enter to the second if sentence.

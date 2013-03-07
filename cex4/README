@@ -1,0 +1,62 @@
+1)
+a)
+void (*fnc)(int);
+
+b)
+int (*funcGetFunc)(void (*)(int));
+
+c)
+
+typedef void (*Pfunc1(int));
+typedef int (*Pfunc2)(void (*)(int));
+
+//the declaration itself
+Pfunc1 *(*funcRetFunc)(Pfunc2);
+
+
+2)
+a)
+int* (*func)();
+void *Pfunc=(void *)func;
+
+b)
+int (*fparr[5])();
+
+c)
+
+int example(void (*fncArr[])(int))
+
+d)
+
+int *(*GetPtr(int n))()
+{
+    int *(*pntr)()=(int *(*)())calloc(n,sizeof(int (*)()));
+    return pntr;
+}
+
+
+3)
+some notes for the programing exercize:
+
+about NULL pointers handeling:
+you didn't write what we should do if we get an NULL pointer (the ex. description demands checking it but don't
+tell us what to do in this case), so i just reported GENERAL_ERROR.
+
+about comparison functions:
+the PDF say that comparison functions should return zero if the keys are equal and
+non-zero if the keys are different, while the description of ComparisonFcn in GenericHashTable.h demand the other
+way, so i followed the method description.
+
+i used linked list to hold the objects in each cell
+
+i find the code self- explaining, and the required api leave us no space for complexing the code too much or for us
+to make a lot of decision about the implementation.
+
+after getting response for ex3:
+when .h files get changed, my make file recomile the library itself, so it recompile everything based on it
+
+END_OF_STRING - i didn't find any const for it in the standard libraries, and i find it more readable to do it that
+way (than just writing '\0')
+
+
+;)

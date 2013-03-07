@@ -1,0 +1,33 @@
+#!/bin/bash
+
+echo "testing Q3..."
+gcc  Q3Test.c Q3.c -o  Q3Testbin
+./Q3Testbin
+rm Q3Testbin
+
+echo "testing Q4..."
+function bold(){
+  tput bold && tput  setaf 1 #make output bold red
+  for s in "$@" ; do
+    echo -e $s
+  done
+  tput sgr0 #reset output style
+}
+
+make all
+
+for tester in $(ls PlayBoardTest/*.in) ; do
+	valgrind --quiet --log-file=valgrindlog~ ./PlayBoard < $tester  2>testErr~ 1>testoutput~
+	if [ "$(cat testoutput~)" != "$(cat $(echo $tester| sed s/in$/out/))" ] ; then
+		bold "tester $tester failed"
+	fi
+	if [ "$(cat testErr~)" != "$(cat $(echo $tester| sed s/in$/err/))" ] ; then
+		bold "stderr is differed for $tester"
+	fi
+	if [ "$(cat valgrindlog~)" != "" ] ; then
+		bold "your program has memory problems for test $tester"
+		echo "valgrind output:"
+		cat valgrindlog~
+	fi
+done
+make clean

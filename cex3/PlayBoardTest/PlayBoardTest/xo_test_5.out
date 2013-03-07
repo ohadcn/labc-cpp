@@ -1,0 +1,217 @@
+
+Printing current state of the board for location (row,col)=(0,0)
+
+     0  1  2  3  4  5  6  7  8  9
+0                                
+1                                
+2                                
+3                                
+4                                
+5                                
+6                                
+7                                
+8                                
+9                                
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (0,
+
+
+
+Printing current state of the board for location (row,col)=(0,15)
+
+      15  16  17  18  19  20  21  22  23  24
+0                                           
+1                                           
+2                                           
+3                                           
+4                                           
+5                                           
+6                                           
+7                                           
+8                                           
+9                                           
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (3,
+
+
+
+Printing current state of the board for location (row,col)=(0,15)
+
+      15  16  17  18  19  20  21  22  23  24
+0                                           
+1                                           
+2                                           
+3              X                            
+4                                           
+5                                           
+6                                           
+7                                           
+8                                           
+9                                           
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (0,
+
+
+
+Printing current state of the board for location (row,col)=(0,304)
+
+       304  305  306  307  308  309  310  311  312  313
+0                                                      
+1                                                      
+2                                                      
+3                                                      
+4                                                      
+5                                                      
+6                                                      
+7                                                      
+8                                                      
+9                                                      
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (9,
+
+
+
+Printing current state of the board for location (row,col)=(0,304)
+
+       304  305  306  307  308  309  310  311  312  313
+0                                                      
+1                                                      
+2                                                      
+3                                                      
+4                                                      
+5                                                      
+6                                                      
+7                                                      
+8                                                      
+9                  O                                   
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (400,
+
+
+
+Printing current state of the board for location (row,col)=(400,0)
+
+         0    1    2    3    4    5    6    7    8    9
+400                                                    
+401                                                    
+402                                                    
+403                                                    
+404                                                    
+405                                                    
+406                                                    
+407                                                    
+408                                                    
+409                                                    
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (406,
+
+
+
+Printing current state of the board for location (row,col)=(400,0)
+
+         0    1    2    3    4    5    6    7    8    9
+400                                                    
+401                                                    
+402                                                    
+403                                                    
+404                                                    
+405                                                    
+406                                    X               
+407                                                    
+408                                                    
+409                                                    
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (400,
+
+
+
+Printing current state of the board for location (row,col)=(400,34)
+
+        34   35   36   37   38   39   40   41   42   43
+400                                                    
+401                                                    
+402                                                    
+403                                                    
+404                                                    
+405                                                    
+406                                                    
+407                                                    
+408                                                    
+409                                                    
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (401,
+
+
+
+Printing current state of the board for location (row,col)=(400,34)
+
+        34   35   36   37   38   39   40   41   42   43
+400                                                    
+401                               O                    
+402                                                    
+403                                                    
+404                                                    
+405                                                    
+406                                                    
+407                                                    
+408                                                    
+409                                                    
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (403,
+
+
+
+Printing current state of the board for location (row,col)=(400,34)
+
+        34   35   36   37   38   39   40   41   42   43
+400                                                    
+401                               O                    
+402                                                    
+403                                    X               
+404                                                    
+405                                                    
+406                                                    
+407                                                    
+408                                                    
+409                                                    
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.

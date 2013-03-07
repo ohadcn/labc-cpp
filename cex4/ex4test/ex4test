@@ -1,0 +1,39 @@
+#!/bin/bash
+
+#print bold red
+function bold(){
+    tput bold && tput  setaf 1 #make output bold red
+    echo -e $@
+    tput sgr0 #reset output style
+}
+
+#usage:test <testers dir> <execution file>
+#assume <testers dir> has .in, .out & .err files
+function test()
+{
+    echo -e "\r\033[Ktesting $2..."
+    for tester in $(ls $1/*.in) ; do
+	echo -ne "\r\033[Krunning test $tester"
+	valgrind --quiet --log-file=valgrindlog~ ./$2 $(cat $tester)  2>testErr~ 1>testoutput~
+	if [ "$(cat testoutput~)" != "$(cat $(echo $tester| sed s/in$/out/))" ] ; then
+	    bold "test $tester failed"
+	fi
+	if [ "$(cat valgrindlog~)" != "" ] ; then
+	    bold "your program has memory problems for test $tester"
+	    echo "valgrind output:"
+	    cat valgrindlog~
+	fi
+    done
+}
+
+trap 'make -s clean' EXIT
+
+echo -e "\tTester for exercise 4 in c course by Ohad Cohen <ohadcn@cs.huji.ac.il>"
+
+echo compiling...
+make -s all
+
+test test_files/SearchStrsIO HashStrsSearch
+test test_files/SearchIntsIO HashIntsSearch
+
+echo -e "\r\033[Kfinished testing!"

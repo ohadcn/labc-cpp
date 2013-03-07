@@ -1,0 +1,239 @@
+
+Printing current state of the board for location (row,col)=(0,0)
+
+     0  1  2  3  4  5  6  7  8  9
+0                                
+1                                
+2                                
+3                                
+4                                
+5                                
+6                                
+7                                
+8                                
+9                                
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (2,
+
+
+
+Printing current state of the board for location (row,col)=(0,0)
+
+     0  1  2  3  4  5  6  7  8  9
+0                                
+1                                
+2          X                     
+3                                
+4                                
+5                                
+6                                
+7                                
+8                                
+9                                
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (1,
+
+
+
+Printing current state of the board for location (row,col)=(0,0)
+
+     0  1  2  3  4  5  6  7  8  9
+0                                
+1                      O         
+2          X                     
+3                                
+4                                
+5                                
+6                                
+7                                
+8                                
+9                                
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (2,
+
+
+
+Printing current state of the board for location (row,col)=(0,0)
+
+     0  1  2  3  4  5  6  7  8  9
+0                                
+1                      O         
+2          X           X         
+3                                
+4                                
+5                                
+6                                
+7                                
+8                                
+9                                
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (2,
+
+
+
+Printing current state of the board for location (row,col)=(0,0)
+
+     0  1  2  3  4  5  6  7  8  9
+0                                
+1                      O         
+2          X        O  X         
+3                                
+4                                
+5                                
+6                                
+7                                
+8                                
+9                                
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (3,
+
+
+
+Printing current state of the board for location (row,col)=(0,0)
+
+     0  1  2  3  4  5  6  7  8  9
+0                                
+1                      O         
+2          X        O  X         
+3                      X         
+4                                
+5                                
+6                                
+7                                
+8                                
+9                                
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (0,
+
+
+
+Printing current state of the board for location (row,col)=(0,0)
+
+     0  1  2  3  4  5  6  7  8  9
+0                         O      
+1                      O         
+2          X        O  X         
+3                      X         
+4                                
+5                                
+6                                
+7                                
+8                                
+9                                
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (4,
+
+
+
+Printing current state of the board for location (row,col)=(0,0)
+
+     0  1  2  3  4  5  6  7  8  9
+0                         O      
+1                      O         
+2          X        O  X         
+3                      X         
+4                      X         
+5                                
+6                                
+7                                
+8                                
+9                                
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (4,
+
+
+
+Printing current state of the board for location (row,col)=(0,0)
+
+     0  1  2  3  4  5  6  7  8  9
+0                         O      
+1                      O         
+2          X        O  X         
+3                      X         
+4             O        X         
+5                                
+6                                
+7                                
+8                                
+9                                
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (6,
+
+
+
+Printing current state of the board for location (row,col)=(0,0)
+
+     0  1  2  3  4  5  6  7  8  9
+0                         O      
+1                      O         
+2          X        O  X         
+3                      X         
+4             O        X         
+5                                
+6                      X         
+7                                
+8                                
+9                                
+
+What do you want to do?
+1. Make a move
+2. Change print location.
+3. Quit.
+Choose location (choose row first): (Choose location (now choose col): (3,
+
+
+
+Printing current state of the board for location (row,col)=(0,0)
+
+     0  1  2  3  4  5  6  7  8  9
+0                         O      
+1                      O         
+2          X        O  X         
+3                O     X         
+4             O        X         
+5                                
+6                      X         
+7                                
+8                                
+9                                
+
+
+
+O wins the game!!!
+

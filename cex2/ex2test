@@ -1,0 +1,41 @@
+#!/bin/bash
+
+function bold(){
+  tput bold && tput  setaf 1 #make output bold red
+  for s in "$@" ; do
+    echo -e $s
+  done
+  tput sgr0 #reset output style
+}
+
+function tester(){
+	echo -n compiling $1.c...
+	gccout=$(gcc -Wall -Wvla -o $1bin $1.c -lm 2>&1 3>&1)
+	if [ $? -gt 0 ]; then
+		bold "\n$1.c can't compiled"
+		echo "$gccout"
+		return
+	fi
+	if [[ "$gccout" == *warning* ]]; then
+		bold "\n$1.c compiled with warnings"
+		echo "$gccout"
+	else
+		bold "ok"
+	fi
+	echo -n "testing $1..."
+	for fil in $(ls $1/*.in) ; do
+		out=$(./$1bin $fil)
+		if [ "$out" != "$(cat $(echo $fil| sed s/in$/out/))" ]; then
+			bold "\ntest $fil failed"
+			return
+		fi
+	done
+	bold "ok"
+	rm $1bin
+}
+if [ "$1" == "--help" ] ; then
+	echo "put the testing files and your source code in the same folder with this tester and run it"
+fi
+for ex in CheckDependency CheckParenthesis ; do
+	tester $ex
+done

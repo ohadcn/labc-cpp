@@ -1,0 +1,59 @@
+1)
+a)
+the value of q1a after runing this code will be 5.14
+the reason is that #define mechanism replces content litterally - so the compiler see the command
+	double q1a = 3.14+1*2
+which equal to 5.14
+
+
+
+b)
+answer 2 is right.
+the computer sees
+
+	if(x<0)
+		x*=2;
+	y*=2;
+
+(i added the indentation to improve readability)
+so y is multipled by 2 (y=3*2=6) and nothing is done with x.
+
+
+
+c)
+this code will print 4 & newline
+because X is defined and nonzero the #IF will be executed and the #else not, and hence z=8/2=4
+
+
+
+2)
+a)
+inside the function printSizeOfArray a is reffered as pointer to integer - so printSizeOfArray function see it as
+having size 8 - size of a pointer in 64 bit machine, and the printf call in it will print 8
+the increment command will be performed successfully
+back to main - in main a have it's original size: size of 4 integers and the for loop will run all over the array
+and print it, printing zeroes except the 3'rd element witch is 1, so the finnal output is:
+	8
+	0, 0, 1, 0,
+
+
+b)
+this time printSizeOfArray sees arrStruct.a as array of 4 integers, so it prints it's size - 4, the size of 4
+integers.
+when using struct and passing it to a method/function, the computer passes it by value - this means that all the
+struct is copied, includind the array, hence the command ++(x.a[2]) will not affect the original structure, and
+the loop prints the former values of the array (which are random numbers because the array is not initialized at
+any point)
+the fact that the struct is passed by value has memory and run-time costs, cause the computer need more time &
+space to copy the array.
+
+
+c)
+no
+
+about CheckDependency:
+the searching algorythm i use is a simple DFS that goes over the dependacy tree, mark each "edge" - file when came
+in and mark again on the way out; if i found myself inside again before going out then there is a cycle, if i was
+on all the files and everything went good then there are no cycles
+this case is just another graph case; and finding cycles on dependacy graph is not differed then finding cycles in
+any other graph in CS.
