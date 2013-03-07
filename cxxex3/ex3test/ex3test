@@ -1,0 +1,90 @@
+#!/bin/bash
+#
+#   Copyright 2012-2013 Ohad Cohen <ohadcn@cs.huji.ac.il>
+#
+#   This program is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU Library General Public License version 3 as
+#   published by the Free Software Foundation
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details
+#
+
+#print bold red
+function red(){
+	tput bold && tput  setaf 1 #make output bold red
+	echo -e $@
+	tput sgr0 #reset output style
+}
+
+function violet(){
+	tput bold && tput  setaf 5
+	echo -e $@
+	tput sgr0
+}
+
+function green(){
+	tput bold && tput  setaf 2
+	echo -e $@
+	tput sgr0
+}
+
+function yellow(){
+	tput bold && tput  setaf 3
+	echo -e $@
+	tput sgr0
+}
+
+function checkKeyword()
+{
+	finds=$(grep -rn --exclude=MatrixDriver.cpp "new " *.cpp|sed 's-\\t- -g')
+	if [ "$finds" ] ; then
+		red "are you using the \"new\" operator?"
+		echo -e "$finds"|GREP_COLOR=7 grep --color new
+	fi
+}
+
+#usage:test <testers dir> <execution file>
+#assume <testers dir> has .in & .out files
+function tester()
+{
+	if [ ! -x $2 ] ;then
+		red "file $2 not found or not executable, exiting..."
+		exit
+	fi
+		n=0
+	green "\r\033[Ktesting $2..."
+	for tester in $(ls $1/*.in) ; do
+		echo -ne "\r\033[Krunning test $tester"
+		./$2 < $tester  2>testErr~ 1>testoutput~
+		if [ "$(cat testoutput~)" != "$(cat $(echo $tester| sed s/in$/out/))" ] ; then
+			red "\r\033[Ktest $tester failed, output diff"
+			n=$((n+1))
+		fi
+		if [ "$(cat testErr~)" != "$(cat $(echo $tester| sed s/in$/err/))" ] ; then
+			violet "\r\033[Ktest $tester failed, err diff"
+		fi
+	done
+	if [ $n != 0 ] ; then
+		yellow "\r\033[K\t\t$n testers failed!"
+	fi
+}
+
+echo -e "\tTester for exercise 3 in c++ course by Ohad Cohen <ohadcn@cs.huji.ac.il>"
+
+green compiling...
+make -s clean
+make -s all
+
+if [ $? != 0 ] ; then
+	red "failed to compile your code, exiting..."
+	exit
+fi
+
+checkKeyword
+
+tester inputOutput MatrixDriver
+
+green "\r\033[Kfinished testing!"

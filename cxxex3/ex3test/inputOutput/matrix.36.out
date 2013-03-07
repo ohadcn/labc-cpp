@@ -1,0 +1,22 @@
+Choose operation:
+1. 	-
+2. 	trace
+3. 	det
+4. 	transpose
+5. 	+
+6. 	*
+7. 	+=
+8. 	*=
+9. 	==
+10. 	!=
+Operation det requires 1 operand matrix.
+How would you like the matrix to be represented (1 for regular and 2 for sparse)?
+number of rows:number of columns:Now insert the values of the matrix, row by row.
+After each cell add the char ',' (including after the last cell of a row).
+Each row should be in a separate line.
+--------
+got matrix:
+0.000	2.000	3.000	1.000	
+4.000	5.000	-6.000	0.000
+Number of elements actually in List:6
+The matrix isn't square

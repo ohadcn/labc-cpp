@@ -1,0 +1,43 @@
+2)
+to support array expanding, we need to check on operator [] if the number is beyond the array size, if it is -
+we need to expand the arrays A, B & C using the realloc() operator. (and update _size, of course)
+we can choose if we wand to expand them to the minimum size possible or more than that.
+than the push_back() method will have just to put the new object at (*this)[_actualSize].
+
+
+3)
+a)
+since the operator [] of MyVector is called a lot of times, it's much more efficient to make it
+inline, so any call to it will take less time.
+i don't know where did you find the X2 factor, on my machine it is more than to X3, look at this:
+
+$ time ./TestMyVectorInlined
+
+real    0m24.497s
+user    0m24.374s
+sys     0m0.068s
+
+$ time ./TestMyVectorOriginal
+
+real    1m23.647s
+user    1m23.397s
+sys     0m0.108s
+
+
+b)
+to analyze the running of my program, I run those commands:
+
+$ g++ -Wall -Wvla -pg -O -DNDEBUG -Wextra CheckDataStructure.cpp -o CheckDataStructure
+$ ./CheckDataStructure
+Done all tests.
+$ gprof CheckDataStructure >result
+$ kwrite result
+
+the interesting lines from result are:
+
+time   seconds   seconds    calls  ms/call  ms/call  name    
+62.59      0.05     0.05        1    50.07    74.62  RegularVectorRun()
+0.00      0.08     0.00        1     0.00     0.38  RegularMapRun()
+0.00      0.08     0.00        1     0.00     0.11  MyQuickInitArrayRun()
+
+as we can see from the performance of QuickInitArray is much faster than map and Map is much faster than vector.

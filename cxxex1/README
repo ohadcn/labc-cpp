@@ -1,0 +1,57 @@
+1)
+a)
+memory that has been allocated as array (with new[]) must be freed with the equivalent command - delete[], and
+freeing it using normal delete is problematic.
+
+b)
+the function getC returns a reference to a local variable - that is freed when the method finished, so
+it leaves a reference to not-allocated memory in the program.
+
+c)
+when the compiler is looking for the initialization steps for class A, it first tries to initialize all A's members - 
+and when it don't found a constructor for C class it returns error.
+to correct this we must declare _c as a pointer.
+
+d)
+the constructor of D is called 8 times when initializing gD (line 34), this is done when the program starts, when
+initializing global variables.
+(objects of type A are never created, so <A>._d is never created - and the constructor of D is never called from there
+if A was constructed - than one more call to D constructor was made before calling it (before line 39)
+line 49 interpreted by the compiler as method declaration, not an object declaration.
+
+e)
+no.
+
+f)
+gD needs to be freed (deleted) during the running of the program.
+
+g)
+           gC                |    b                       |   arr
+	                     |                            |
+alloc     program starts     | A's constructor started    |   C constructed      
+                             |                            |
+name      gC                 |    b                       |   <objectname>.arr    ( for any object of type C)
+                             |                            |
+type      heap               |  static                    |   heap
+                             |
+freed     program finished   |  constructing A finished   |   C destructed     
+
+2)
+ex. files:
+
+Point - the base Point class
+PointList - the class PointList, which hold an expandable array of points
+Stack - a stack of points, this class privately inherits PointList
+PointComperator - an abstract class, for comparing Points
+GrahamScan - this header has one static method to compute the convex hull of a given graph
+ConvexHull - this file holds the main method
+
+i encapsulate most of the algorithm in the file GrahamScan, the header contains only one method, but the
+implementation has two little classes and an helper method - a lot of stuff.
+my sorting method uses the quicksort algorithm. the demand to sort the results by x's & y's forced me to resort the
+points after determining the convex.
+i used the simple graham algorithm - i took the point with the minimal x coordinate, sort all the other points by
+their angle to it, and then go from one to one and choose only the points that makes a left turn with the two
+points before them.
+
+even i am not a c++ guru, i tried to use as many language features as i can, so please be patience with me...

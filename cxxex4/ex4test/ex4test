@@ -1,0 +1,85 @@
+#!/bin/bash
+#
+#   Copyright 2012-2013 Ohad Cohen <ohadcn@cs.huji.ac.il>
+#
+#   This program is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU Library General Public License version 3 as
+#   published by the Free Software Foundation
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details
+#
+
+#print bold red
+function red(){
+	tput bold && tput  setaf 1 #make output bold red
+	echo -e $@
+	tput sgr0 #reset output style
+}
+
+function violet(){
+	tput bold && tput  setaf 5
+	echo -e $@
+	tput sgr0
+}
+
+function green(){
+	tput bold && tput  setaf 2
+	echo -e $@
+	tput sgr0
+}
+
+function yellow(){
+	tput bold && tput  setaf 3
+	echo -e $@
+	tput sgr0
+}
+
+function tester()
+{
+	green "\r\033[Ktesting MyQuickInitArray..."
+	cp MyQuickInitArray.h ./arrTests
+	cd ./arrTests
+	n=0
+	for TESTER in $(ls *.cpp) ; do
+		echo -ne "\r\033[Krunning test $TESTER..."
+		BIN=$(echo $TESTER| sed s/\.cpp$//)
+		g++ -Wall -Wvla $TESTER -o "$BIN"
+		if [ "$(./$BIN)" != "$(cat $(echo $TESTER| sed s/cpp$/result/))" ] ; then
+			red "test $TESTER failed"
+		fi
+		rm -f $BIN
+	done
+	cd ..
+	if [ $n != 0 ] ; then
+			yellow "\r\033[K\t\t$n testers failed!"
+	fi
+	cd ..
+}
+
+echo -e "\tTester for exercise 4 in c++ course by Ohad Cohen <ohadcn@cs.huji.ac.il>"
+
+green compiling...
+make -s clean
+make -s all
+
+if [ $? != 0 ] ; then
+	red "failed to compile your code, exiting..."
+	exit
+fi
+
+if [ ! -x CheckDataStructure ] ;then
+	red "file CheckDataStructure not found or not executable"
+fi
+
+ echo -ne "\r\033[Krunning test CheckDataStructure..."
+
+if [ "$(./CheckDataStructure)" != "Done all tests." ] ; then
+	red "CheckDataStructure test failed\n"
+fi
+
+tester
+
+green "\r\033[Kfinished testing!"

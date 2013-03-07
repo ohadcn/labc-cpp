@@ -1,0 +1,57 @@
+1)
+a)
+Ross of weight 3 - called from Cat's con., decision on compilation time, the last print is the Cat one, and the
+print of Tiger has not been created yet.
+
+Ross with speed 40 - caled from Tiger con., decided on compilation time, cuase the Tiger print is the last one.
+
+Ross with speed 40 - called directly from main, decided on runtime, since Tiger has already been created & it's
+the last print on the vtable.
+
+Levi of weight 4 - from cat's con., decided on compilation time, cuase that object has no other print method...
+
+Levi of weight 4 - called directly from main, decided on runtime, cuase that object has no other print method.
+
+Ross with speed 135081 - called directly from main, decided on runtime,  since the vtable is copied from a Tiger
+object it has Tiger print, this call may cause memory problems since Tiger objects needs more memory than cats,
+and c allocated memory as cat, so U can't be sure that the memory for the speed field of c is at least reachable.
+
+b)
+since the destructor is not declared virtual, when shimon deletes a' the destructor of Dog is not called and the 
+space for the field _dogtype is not freed.
+
+2)
+a)
+inline functions are replaced by thier code wherever they called, so in recursive functions it may lead to infinite
+compilation - when the compiler ewplace the code again and again. (b) most of modern compilers recognize that and
+restrict the number of times the inline function replaced in it's own recursive code. the more deep recursion is 
+replaced by regular function call.
+
+c)
+the linker needs a compiled version of the function - and since it's in the header & not inlined it has no compiled
+version and the executable can't be linked. (when it was inlined it was compiled with the Q2b.cpp in main)
+
+3)
+classes structure:
+candidate -->university --> alice
+                        --> bob
+
+          --> college   --> collin
+                        --> danny
+
+those classes are used to store the candidates information
+
+other classes:
+List - this class is a general list (i took the one i used for PointList in ex1 and change it to use templates)
+
+non-classes files:
+IO - methods for input / output and IO manipulations
+Errors - the reportError method, which is called each time an error occured.
+Hire - the main file.
+
+finding the candidates algorithm:
+i iterate over the list from buth sides, everytime i save indexes of three candidates: the two which are the best
+couple for now (resLow & resHigh), and the one with the highest worth in the range (0..lowPart), and each iteration
+lowPart is going from it's last value until the salary of it and the salary of i are more than MAX_SALARY.
+
+this algorithm needs O(n) time to run.

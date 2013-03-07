@@ -1,0 +1,35 @@
+Choose operation:
+1. 	-
+2. 	trace
+3. 	det
+4. 	transpose
+5. 	+
+6. 	*
+7. 	+=
+8. 	*=
+9. 	==
+10. 	!=
+Operation != requires 2 operand matrices.
+How would you like the first matrix to be represented (1 for regular and 2 for sparse)?
+How would you like the second matrix to be represented (1 for regular and 2 for sparse)?
+Insert first matrix:
+number of rows:number of columns:Now insert the values of the matrix, row by row.
+After each cell add the char ',' (including after the last cell of a row).
+Each row should be in a separate line.
+Insert second matrix:
+number of rows:number of columns:Now insert the values of the matrix, row by row.
+After each cell add the char ',' (including after the last cell of a row).
+Each row should be in a separate line.
+--------
+Got first matrix:
+10.000	2.346	-2.222	0.100	
+0.000	0.000	3.000	0.400	
+0.100	1.000	3.010	-0.500
+--------
+Got second matrix:
+10.000	2.345	-2.223	0.100	
+0.000	0.000	3.000	0.400	
+0.100	1.000	3.010	-0.500
+Number of elements actually in List:10
+==========
+The two matrices are different.

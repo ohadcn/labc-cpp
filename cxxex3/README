@@ -1,0 +1,14 @@
+1)
+1.double
+2.illegal call
+3.char*
+4.illegal call
+5.illegal call
+
+2)
+the + operator change the arguments it gates, the line 'other._p*=res._q' does change the second operand.
+that line should be removed, and the last line should be changed to 'res._p+=other._p*this._q'
+to avoid this kind of errors it advised to declare operators/methods/parameters as const.
+
+so Johnathan should declare the + operator and it's argument as const. doing thiat is important to make sure he
+don't thouch members he don't want to.

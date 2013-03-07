@@ -1,0 +1,42 @@
+Choose operation:
+1. 	-
+2. 	trace
+3. 	det
+4. 	transpose
+5. 	+
+6. 	*
+7. 	+=
+8. 	*=
+9. 	==
+10. 	!=
+Operation *= requires 2 operand matrices.
+How would you like the first matrix to be represented (1 for regular and 2 for sparse)?
+How would you like the second matrix to be represented (1 for regular and 2 for sparse)?
+Insert first matrix:
+number of rows:number of columns:Now insert the values of the matrix, row by row.
+After each cell add the char ',' (including after the last cell of a row).
+Each row should be in a separate line.
+Insert second matrix:
+number of rows:number of columns:Now insert the values of the matrix, row by row.
+After each cell add the char ',' (including after the last cell of a row).
+Each row should be in a separate line.
+--------
+Got first matrix:
+1.233	3.400	-5.600	0.100	
+-10.130	10.000	100.000	1000.000	
+0.000	33.000	3.000	3.000
+Number of elements actually in List:11
+--------
+Got second matrix:
+10.000	20.200	3.000	
+-1.000	0.000	9.000	
+0.000	2.000	10.000	
+3.000	4.000	100.000
+Number of elements actually in List:10
+Now the first matrix is:
+==========
+Resulted matrix:
+9.230	14.107	-11.701	
+2888.700	3995.374	101059.610	
+-24.000	18.000	627.000
+Number of elements actually in List:9

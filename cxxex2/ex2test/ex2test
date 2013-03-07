@@ -1,0 +1,64 @@
+#!/bin/bash
+
+#print bold red
+function red(){
+    tput bold && tput  setaf 1 #make output bold red
+    echo -e $@
+    tput sgr0 #reset output style
+}
+
+function violet(){
+    tput bold && tput  setaf 5
+    echo -e $@
+    tput sgr0 #reset output style
+}
+
+function green(){
+    tput bold && tput  setaf 2
+    echo -e $@
+    tput sgr0 #reset output style
+}
+
+#usage:test <testers dir> <execution file>
+#assume <testers dir> has .in & .out files
+function tester()
+{
+	if [ ! -x $2 ] ;then
+		red "file $2 not found or not executable, exiting..."
+		exit
+	fi
+	green "\r\033[Ktesting $2..."
+	for tester in $(ls $1/*.in) ; do
+	echo -ne "\r\033[Krunning test $tester"
+	valgrind --leak-check=full --show-possibly-lost=yes --show-reachable=yes --undef-value-errors=yes --quiet --log-file=valgrindlog~ ./$2 < $tester  2>testErr~ 1>testoutput~
+	if [ "$(cat testoutput~)" != "$(cat $(echo $tester| sed s/in$/out/))" ] ; then
+	    red "\r\033[Ktest $tester failed"
+	fi
+	if [ -s valgrindlog~ ] ; then
+	    violet "\r\033[Kdetected memory management problems for input file $tester"
+	    echo "valgrind output:"
+	    cat valgrindlog~
+	fi
+    done
+}
+
+function clean(){
+    echo -e "\r\033[Kcleaning..."
+    make -s clean
+}
+
+trap 'clean' EXIT
+
+echo -e "\tTester for exercise 2 in c++ course by Ohad Cohen <ohadcn@cs.huji.ac.il>"
+
+echo compiling...
+make -s all
+
+if [ $? != 0 ] ; then
+    red "failed to compile your code, exiting..."
+    exit
+fi
+
+tester inputOutput Hire
+
+echo -e "\r\033[Kfinished testing!"
